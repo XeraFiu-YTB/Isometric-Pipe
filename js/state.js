@@ -9,13 +9,15 @@ let state = {
         schedule: 'Sch 40',
         pipeSize: 'DN 100 / 4-inch',
         units: 'metric' // 'metric' or 'imperial'
-    }
+    },
+    lines: []
 };
 
 // State getters
 export const getMode = () => state.mode;
 export const getSelectedElement = () => state.selectedElement;
 export const getProjectSettings = () => state.projectSettings;
+export const getLines = () => state.lines;
 
 // State setters
 export const setMode = (newMode) => {
@@ -31,4 +33,9 @@ export const setSelectedElement = (element) => {
 export const setProjectSettings = (newSettings) => {
     state.projectSettings = { ...state.projectSettings, ...newSettings };
     console.log('Project settings updated:', state.projectSettings);
+};
+
+export const addLine = (line) => {
+    state.lines.push(line);
+    console.log('Line added:', line);
 };
